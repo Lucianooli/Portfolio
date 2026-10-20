@@ -1,0 +1,139 @@
+.planwin-carousel {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 14px;
+  background: #111713;
+}
+
+.planwin-carousel__viewport {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #111713;
+}
+
+.planwin-carousel__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: planwin-fade-in 0.25s ease;
+}
+
+.planwin-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(10, 15, 12, 0.75);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.planwin-carousel__arrow:hover {
+  background: #31a093;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.planwin-carousel__arrow--left {
+  left: 12px;
+}
+
+.planwin-carousel__arrow--right {
+  right: 12px;
+}
+
+.planwin-carousel__counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: rgba(10, 15, 12, 0.8);
+  color: #fff;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.planwin-carousel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+}
+
+.planwin-carousel__title {
+  color: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.planwin-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.planwin-carousel__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #777;
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.planwin-carousel__dot.is-active {
+  width: 20px;
+  border-radius: 8px;
+  background: #31a093;
+}
+
+@keyframes planwin-fade-in {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .planwin-carousel__viewport {
+    height: 250px;
+  }
+
+  .planwin-carousel__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .planwin-carousel__image {
+    animation: none;
+  }
+
+  .planwin-carousel__arrow,
+  .planwin-carousel__dot {
+    transition: none;
+  }
+}
